@@ -12,21 +12,21 @@
 - Framework CSS => Bootstrap;
 
 ## Requisitos do Projeto:
-- Campos para o cadastro de cliente: Nome, data de nascimento, sexo, cep, endereço, número, complemento, bairro, estado, cidade.
-- Consumir webservice para consulta de cep: https://viacep.com.br/, preencher campos do cadastro após a consulta do cep.
-- Validar cadastro de cliente: Nome, data de nascimento e sexo obrigatórios.
+- Campos para o cadastro de cliente: Nome, cpf, data de nascimento, email, telefone.
+- Validar todos os campos para serem preenchidos.
+- Utilizar mascara nos campos CPF, data de nascimento e telefone
 
 ## Configuração do Projeto:
-- Executar a query crmall.sql ou importar o arquivo no phpMyAdmin para criar a table necessária.
-- Editar o arquivo **lib/config.php** 
+- Executar a query crud.sql ou importar o arquivo no seu SGBG para criar a estrutura de banco de dados necessária.
+- Editar o arquivo **source/config.php** 
 
 ## Estrutura do Projeto
 - Dir. css => biblioteca de estilos do boostrap
-- Dir. js => bilbioteca jquery e scripts usados na consulta ao cep e em validações
-- Dir. lib => configurações gerais do php, funções e banco de dados
-- clienteControl.php => Tratamento das requisições para o CRUD: (Create, Read, Update e Delete)
-- cllienteForm.php => Formulário para cadastro e edição do cliente
-- index.php => listagem geral de clientes cadastrados
+- Dir. js => bilbioteca jquery e scripts usados em validações
+- Dir. source => configurações gerais, autoload e arquivo de funções 
+- Dir. source/model => interacao da classe cliente com o banco de dados
+- Dir. view => telas do sistema
+- index.php => tela inicial com a listagem de clientes cadastrados
 
 ## Endereço do projeto em funcionamento
 ###### http://www.arturweb.com.br/clientes/
