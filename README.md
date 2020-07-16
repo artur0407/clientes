@@ -1,12 +1,12 @@
 # Projeto Web - CRUD com PHP HTML CSS e JS
 
 ## Front-End: Bootstrap e Jquery
-## Back-End: PDO & MySQL
+## Back-End: PHP & MySQL
 
 ###### Desenvolvimento de um sistema simples para Controle de Clientes.
 
 ## Ferramentas utilizadas:
-- Framework/biblioteca em PHP => PDO(PHP DATA OBJETC).
+- Biblioteca para manipulação do banco com PHP => PDO(PHP DATA OBJETC).
 - Banco de Dados => Mysql;
 - Framework JS => Jquery;
 - Framework CSS => Bootstrap;
