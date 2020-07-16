@@ -1,7 +1,7 @@
 <?php
 
 spl_autoload_register(function ($class) {
-    $prefix = "Source\\"; //namespace
+    $prefix = "source\\"; //namespace
     $baseDir = __DIR__ . DIRECTORY_SEPARATOR;
     $len = strlen($prefix);
 
@@ -11,9 +11,9 @@ spl_autoload_register(function ($class) {
 
     $relativeClass = substr($class, $len);
 
-    $file = $baseDir . str_replace("\\", "/", $relativeClass) . ".php";
-
+    $file = $baseDir .str_replace("\\", DIRECTORY_SEPARATOR, $relativeClass) . ".php";
+    
     if(file_exists($file)){
-        require $file;
+        require_once $file;
     }
 });
