@@ -18,7 +18,7 @@
 
 ## Configuração do Projeto:
 - Executar a query crud.sql ou importar o arquivo no seu SGBG para criar a estrutura de banco de dados necessária.
-- Editar o arquivo **source/config.php** 
+- Editar o arquivo **source/config.php** para modificar ambiente
 
 ## Estrutura do Projeto
 - Dir. css => biblioteca de estilos do boostrap
@@ -29,4 +29,4 @@
 - index.php => tela inicial com a listagem de clientes cadastrados
 
 ## Endereço do projeto em funcionamento
-###### http://www.arturweb.com.br/clientes/
+###### http://www.arturweb.com.br/cliente/
