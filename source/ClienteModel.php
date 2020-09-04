@@ -1,11 +1,5 @@
 <?php
 
-namespace Source\Model;
-
-use PDO;
-use PDOException;
-use Source\Conexao;
-
 class ClienteModel
 {    
     private $pdo = NULL;
