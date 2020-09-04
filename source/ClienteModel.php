@@ -1,10 +1,6 @@
 <?php
 
-namespace Source\Model;
-
-use PDO;
-use PDOException;
-use Source\Conexao;
+require_once 'Conexao.php';
 
 class ClienteModel
 {    

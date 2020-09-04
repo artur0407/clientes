@@ -5,11 +5,11 @@
     date_default_timezone_set('America/Sao_Paulo');
 
     //Modo producao ou desenvolvimento
-    define('ENVIRONMENT', 1);
+    define('ENVIRONMENT', 0);
 
     // Verifica o ambiente para mostrar ou não todos os erros
-    if ( ! defined('ENVIRONMENT') || ENVIRONMENT == true ) {
-        define('ABSPATH', 'http://127.0.0.1/cruds/clientes/');
+    if (!ENVIRONMENT) {
+        define('ABSPATH', 'http://127.0.0.1/cruds/cliente/');
         error_reporting(E_ALL);
         ini_set("display_errors", 1);
         define('DB_HOST',    'localhost');

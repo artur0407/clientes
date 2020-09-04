@@ -1,10 +1,5 @@
 <?php
 
-namespace Source;
-
-use PDO;
-use PDOException;
-
 class Conexao 
 {  
     private static $pdo;
