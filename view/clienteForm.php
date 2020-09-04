@@ -1,7 +1,7 @@
 <?php
-   require_once("../source/config.php");
-   require_once("../source/funcoes.php");
-   require_once("../source/autoload.php");
+	require_once("../lib/config.php");
+	require_once("../lib/funcoes.php");
+	require_once("../autoload.php");
 ?>
 
 <!DOCTYPE html>
@@ -14,21 +14,28 @@
 	</head>
     <body>
 		<div class="w-auto p-1 bg-dark">
-			<h1 class="text-white text-center">Controle de Clientes</h1>
+			<h1 class="text-white text-center"> Controle de Clientes </h1>
 		</div>
      
 		<?php 
+			$readonly = "readonly";
 			$action = isset($_GET['action']) ? $_GET['action'] : "";
 			$id     = isset($_GET['id'])     ? $_GET['id'] 	   : "";
-			
-			$titleForm = "Cadastro";
 
-			if (!empty($action) && $action === 'edit' && !empty($id)) {
-				$titleForm = "Edição";
-				$clienteEdit = new \Source\Model\ClienteModel();
+			if (!empty($action) && !empty($id)) {
+				if ($action === 'edit') {
+					$readonly = "";
+					$titleForm = "Editar Cliente";
+				} else if($action === 'view') {
+					$titleForm = "Visualizar Cliente";
+				}
+				$clienteEdit = new ClienteModel();
 				$cliente = $clienteEdit->get($id);
+			} else {
+				$readonly = "";
+				$titleForm = "Cadastro";
 			}
-						
+
 			$id 		 = !empty($cliente["id"]) 		 ? $cliente["id"] 		 : "";
 			$nome 		 = !empty($cliente["nome"]) 	 ? $cliente["nome"] 	 : "";
 			$cpf 		 = !empty($cliente["cpf"]) 		 ? $cliente["cpf"] 		 : "";
@@ -52,26 +59,28 @@
 			<div class="form-row">
 				<div class="form-group col-md-12">
 					<label for="nome"> Nome <span class="text-danger"> * </span> </label>
-    				<input type="text" class="form-control" id="nome" name="nome" value="<?=$nome; ?>" required>
+    				<input type="text" class="form-control" <?=$readonly;?> id="nome" name="nome" value="<?=$nome; ?>" required>
 				</div>
 				<div class="form-group col-md-6">
 					<label for="cpf"> CPF <span class="text-danger"> * </span> </label>
-    				<input type="text" class="form-control" id="cpf" name="cpf" value="<?=$cpf; ?>" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
+    				<input type="text" class="form-control" <?=$readonly;?> id="cpf"  name="cpf" value="<?=$cpf; ?>" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
 				</div>
 				<div class="form-group col-md-6">
 					<label for="data_nasc"> Data de Nascimento <span class="text-danger"> * </span> </label>
-					<input class="form-control" type="date" id="data_nasc" name="data_nasc" value="<?=$data_nasc; ?>" required>
+					<input class="form-control" type="date" <?=$readonly;?> id="data_nasc" name="data_nasc" value="<?=$data_nasc; ?>" required>
 				</div>
 				<div class="form-group col-md-6">
 					<label for="email"> Email <span class="text-danger"> * </span> </label>
-    				<input type="text" class="form-control" id="email" name="email" value="<?=$email; ?>" required>
+    				<input type="text" class="form-control" <?=$readonly;?> id="email" name="email" value="<?=$email; ?>" required>
 				</div>
 				<div class="form-group col-md-6">
 					<label for="telefone"> Telefone <span class="text-danger"> * </span> </label>
-					<input class="form-control" type="tel" id="telefone" name="telefone" value="<?=$telefone; ?>" pattern="\([0-9]{2}\)[\s][0-9]{5}-[0-9]{4}" placeholder="(99) 99999-9999" required>
+					<input class="form-control" type="tel" <?=$readonly;?> id="telefone" name="telefone" value="<?=$telefone; ?>" pattern="\([0-9]{2}\)[\s][0-9]{5}-[0-9]{4}" placeholder="(99) 99999-9999" required>
 				</div>
 			</div>
-			<button type="submit" class="btn btn-primary" role="button" aria-pressed="true">Salvar </button>
+			<?php if($action === 'edit' || empty($readonly)) { ?>
+				<button type="submit" class="btn btn-primary" role="button" aria-pressed="true">Salvar </button>
+			<?php } ?>
 			<a href="../index.php" class="btn btn-secondary" role="button" aria-pressed="true">Voltar </a>
 		</form>
 	</div>

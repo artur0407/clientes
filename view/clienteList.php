@@ -1,5 +1,5 @@
 <?php
-    $clienteList = new Source\Model\ClienteModel();
+    $clienteList = new ClienteModel();
     $clientes = $clienteList->list();
 ?>
 
@@ -26,10 +26,13 @@
             <td> <?=$cli["email"]; ?>		 		     </td>
             <td> <?=$cli["telefone"]; ?>			 	 </td>
             <td>
+                <a class="btn btn-info btn-sm" href="view/clienteForm.php?id=<?=$cli['id']; ?>&action=view" role="button">
+                    Visualizar
+                </a>
                 <a class="btn btn-warning btn-sm" href="view/clienteForm.php?id=<?=$cli['id']; ?>&action=edit" role="button">
                     Editar
                 </a>
-                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal<?=$cli['id'];?>">
+                <button class="btn btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modal<?=$cli['id'];?>">
                     Remover
                 </button>
             </td>

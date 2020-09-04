@@ -1,7 +1,7 @@
 <?php
-	require_once("source/config.php");
-	require_once("source/funcoes.php");
-	require_once("source/autoload.php");
+	require_once("lib/config.php");
+	require_once("lib/funcoes.php");
+	require_once("autoload.php");
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@
 	<body>
 
 	<div class="w-auto p-1 bg-dark">
-		<h1 class="text-white text-center">Controle de Clientes</h1>
+		<h1 class="text-white text-center"> Controle de Clientes </h1>
 	</div>
 
     <div class="container">

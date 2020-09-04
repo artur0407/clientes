@@ -1,14 +1,14 @@
 <?php
-require_once("../source/config.php");
-require_once("../source/funcoes.php");
-require_once("../source/autoload.php");
+require_once("../lib/config.php");
+require_once("../lib/funcoes.php");
+require_once("../autoload.php");
 
 $action = isset($_GET['action']) ? $_GET['action'] : "";
 $id     = isset($_GET['id'])     ? $_GET['id']     : "";
 
 //Tratamento para DELETE
 if (!empty($action) && $action === 'remove' && !empty($id)) {
-    $clienteRemove = new \Source\Model\ClienteModel();
+    $clienteRemove = new ClienteModel();
     $cliente = $clienteRemove->remove($id);
 
     if(isset($cliente["sucesso"])) {
@@ -20,7 +20,7 @@ if (!empty($action) && $action === 'remove' && !empty($id)) {
 
 //Tratamento para INSERT ou UPDATE
 if (!empty($_POST)) {
-    $clienteValidate = new \Source\Model\ClienteModel();
+    $clienteValidate = new ClienteModel();
     $cliente = $clienteValidate->validate($_POST);
 
     if(isset($cliente['erroForm'])) {
@@ -30,7 +30,7 @@ if (!empty($_POST)) {
     }
 
     if (empty($_POST["id"])) {
-        $clienteInsert = new \Source\Model\ClienteModel();
+        $clienteInsert = new ClienteModel();
         $cliente = $clienteInsert->save($_POST);
 
         if(!isset($cliente["erro"])) {
@@ -39,7 +39,7 @@ if (!empty($_POST)) {
             $_SESSION["erro"] = "Erro ao cadastrar cliente";
         }
     } else {
-        $clienteUpdate = new \Source\Model\ClienteModel();
+        $clienteUpdate = new ClienteModel();
         $cliente = $clienteUpdate->update($_POST, $_POST["id"]);
         
         if(!isset($cliente["erro"])){
@@ -51,4 +51,3 @@ if (!empty($_POST)) {
 }
 
 header("Location: ../index.php");
-exit;
