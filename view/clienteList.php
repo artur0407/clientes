@@ -26,10 +26,10 @@
             <td> <?=$cli["email"]; ?>		 		     </td>
             <td> <?=$cli["telefone"]; ?>			 	 </td>
             <td>
-                <a class="btn btn-info btn-sm" href="view/clienteForm.php?id=<?=$cli['id']; ?>&action=view" role="button">
+                <a class="btn btn-info btn-sm" href="index.php?page=clienteForm&id=<?=$cli['id']; ?>&action=view" role="button">
                     Visualizar
                 </a>
-                <a class="btn btn-warning btn-sm" href="view/clienteForm.php?id=<?=$cli['id']; ?>&action=edit" role="button">
+                <a class="btn btn-warning btn-sm" href="index.php?page=clienteForm&id=<?=$cli['id']; ?>&action=edit" role="button">
                     Editar
                 </a>
                 <button class="btn btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modal<?=$cli['id'];?>">
@@ -61,4 +61,4 @@
         <?php } ?>
     </tbody>
 </table>
-<a href="view/clienteForm.php" class="btn btn-primary" role="button" aria-pressed="true">Adicionar</a>
+<a href="index.php?page=clienteForm" class="btn btn-primary" role="button" aria-pressed="true">Adicionar</a>

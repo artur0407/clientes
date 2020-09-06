@@ -1,7 +1,5 @@
 <?php
 
-require_once 'Conexao.php';
-
 class ClienteModel
 {    
     private $pdo = NULL;

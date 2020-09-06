@@ -25,7 +25,7 @@ if (!empty($_POST)) {
 
     if(isset($cliente['erroForm'])) {
         $_SESSION['erroForm'] = $cliente['erroForm'];
-        header("Location: ../view/clienteForm.php");
+        header("Location: ../index.php?page=clienteForm");
         exit;
     }
 
