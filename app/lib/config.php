@@ -2,6 +2,8 @@
     
     header("Content-type: text/html; charset=utf-8");
     
+    session_start();
+
     date_default_timezone_set('America/Sao_Paulo');
 
     //Modo producao ou desenvolvimento
@@ -27,7 +29,4 @@
         define('DB_NAME',    'cacamb14_cliente');
         define('DB_CHARSET', 'utf8');  
     }
-    
-    // Inicia a sessão
-    session_start();
 ?>

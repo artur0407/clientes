@@ -1,4 +1,9 @@
 <?php
+namespace model;
+
+use lib\Conexao;
+use PDO;
+use PDOException;
 
 class ClienteModel
 {    
@@ -60,7 +65,7 @@ class ClienteModel
         $cliente = array();
 
         extract($post);
-               
+
         try {
 
             $sql = "INSERT INTO cliente 
@@ -86,6 +91,7 @@ class ClienteModel
             }
 
         } catch (PDOException $erro) {
+            var_dump('cathh'); exit;
             $clientes["erro"] = $erro->getMessage();
         }
 
