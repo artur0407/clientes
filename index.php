@@ -1,6 +1,6 @@
 <?php
-	require_once("lib/config.php");
-	require_once("lib/funcoes.php");
+	require_once("app/lib/config.php");
+	require_once("app/lib/funcoes.php");
 	require_once("autoload.php");
 ?>
 
@@ -39,8 +39,15 @@
 				if($page == 'clienteForm') {
 					include('view/clienteForm.php');
 				}
-			}
 
+				if($page == 'clienteController') {
+					$post   = count($_POST) > 0      ? $_POST 		   : [];
+					$action = isset($_GET['action']) ? $_GET['action'] : "";
+					$id     = isset($_GET['id'])     ? $_GET['id']     : "";
+
+					$controller = new controller\ClienteController($post, $action, $id);
+				}
+			}
 		?>
 	</div>
 

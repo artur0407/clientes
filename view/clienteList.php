@@ -1,5 +1,5 @@
 <?php
-    $clienteList = new ClienteModel();
+    $clienteList = new model\ClienteModel();
     $clientes = $clienteList->list();
 ?>
 
@@ -51,7 +51,7 @@
                         </div>
                         <div class="modal-footer justify-content-center">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-                            <a class="btn btn-primary" href="controller/clienteController.php?id=<?=$cli['id']; ?>&action=remove" role="button">Sim</a>
+                            <a class="btn btn-primary" href="index.php?page=clienteController&id=<?=$cli['id']; ?>&action=remove" role="button">Sim</a>
                         </div>
                     </div>
                 </div>

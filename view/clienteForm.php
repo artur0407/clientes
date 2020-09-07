@@ -10,7 +10,7 @@
 		} else if($action === 'view') {
 			$titleForm = "Visualizar Cliente";
 		}
-		$clienteEdit = new ClienteModel();
+		$clienteEdit = new model\ClienteModel();
 		$cliente = $clienteEdit->get($id);
 	} else {
 		$readonly = "";
@@ -26,17 +26,14 @@
 ?>
 
 <div class="container">
-
 	<h2 class="mt-3"> <?=$titleForm;?> </h2>
-	
 	<?php
 		if (!empty($_SESSION["erroForm"])) { 
 			viewError($_SESSION["erroForm"]);
 			$_SESSION["erroForm"] = ""; 
 		}
 	?>
-
-	<form class="mt-3 needs-validation" action="controller/clienteController.php" method="POST" novalidate>
+	<form class="mt-3 needs-validation" action="?page=clienteController&action=save" method="POST" novalidate>
 		<input type="hidden" name="id" value="<?=$id;?>"> 
 		<div class="form-row">
 			<div class="form-group col-md-12">
